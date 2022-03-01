@@ -1,0 +1,32 @@
+import os
+
+directory = input("Enter dicrectory to save file: ")
+
+if directory == "":
+
+  directory = os.path.dirname(os.path.realpath(__file__))
+
+
+
+filename = input("Enter filename: ")
+
+
+name = input("Enter name: ")
+address = input("Enter address: ")
+phone = input("Enter phone number: ")
+
+
+
+with open("{}/{}.csv".format(directory, filename), 'w') as file:
+    file.write(",".join([name, address, phone]) + "\n")
+
+
+
+with open("{}/{}.csv".format(directory, filename), 'r') as file:
+
+    print("{}\{}.csv contents".format(directory, filename))
+
+
+
+    for line in file:
+        print(line)
